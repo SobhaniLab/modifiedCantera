@@ -507,7 +507,7 @@ class AxiStagnFlow : public StFlow
 public:
     AxiStagnFlow(IdealGasPhase* ph = 0, size_t nsp = 1, size_t points = 1) :
         StFlow(ph, nsp, points) {
-        m_type = cPorousType; //modified 03/15, temporary solution
+        // m_type = cPorousType; //modified 03/15, temporary solution
         m_dovisc = true;
     }
 
@@ -542,9 +542,10 @@ public:
 	    m_porec(0.1), m_pored(0.1), m_diama(0.1), m_diamb(0.1), 
 	    m_diamc(0.1), m_diamd(0.1)
         {
-	   Tw.resize(points);
-	   dq.resize(points);
-	   hconv.resize(points);
+        m_type = cPorousType;
+        Tw.resize(points);
+        dq.resize(points);
+        hconv.resize(points);
         }
     virtual void setupGrid(size_t n, const doublereal* z);
     //! initialize the solid solver as well as the radiant flux vector
@@ -603,7 +604,7 @@ private:
     vector_fp Twprev1;
     vector_fp zprev;
     vector_fp hconv;
-    int m_adapt;
+    double m_adapt;
 };
 // modified: modification ends
 

@@ -71,14 +71,8 @@ public:
     }
 
     // modified: new member function added
-    // void setExtraVar(doublereal * x) {
-    //     m_doevar = true;
-    //     m_evar = x;
-    // }
-    void setExtraVar(vector_fp &Tw)
-    {
-        m_doevar = true;
-        m_evar = Tw;
+    void setExtraVar(doublereal * x) {
+        m_doevar = true; m_evar = x;
     }
 
     int analyze(size_t n, const doublereal* z, const doublereal* x);

@@ -1130,7 +1130,7 @@ void StFlow::evalContinuity(size_t j, double* x, double* rsd, int* diag, double 
 void AxiStagnFlow::evalRightBoundary(doublereal* x, doublereal* rsd,
                                      integer* diag, doublereal rdt)
 {
-    // modified 03/15
+    // modified eval 03/15
 
     // old code
     // size_t j = m_points - 1;
@@ -1255,7 +1255,7 @@ void PorousFlow::eval(size_t jg, doublereal* xg,
         return;
     }
 
-    // modified 03/15
+    // modified eval
     // if evaluating a Jacobian, compute the steady-state residual
     // if (jg != npos) {
     //     rdt = 0.0;
@@ -1293,7 +1293,7 @@ void PorousFlow::eval(size_t jg, doublereal* xg,
     // update transport properties only if a Jacobian is not
     // being evaluated
 
-    // modified 03/15
+    // modified eval
     // if (jg == npos) {
     //     updateTransport(x, j0, j1);
     // }
@@ -1447,7 +1447,7 @@ void PorousFlow::eval(size_t jg, doublereal* xg,
             // will force the solution variables to the values for
             // the boundary object
             
-            // modified 03/15
+            // modified eval
             // rsd[index(c_offset_V,0)] = V(x,0);
             // rsd[index(c_offset_T,0)] = T(x,0);
             // rsd[index(c_offset_L,0)] = -rho_u(x,0);
@@ -1470,7 +1470,7 @@ void PorousFlow::eval(size_t jg, doublereal* xg,
                     -(m_flux(k,0) + rho_u(x,0)* Y(x,k,0));
             }
 
-            // modified 03/15
+            // modified eval
             // rsd[index(c_offset_Y, 0)] = 1.0 - sum;
             rsd[index(c_offset_Y + leftExcessSpecies(), 0)] = 1.0 - sum;
             // modified 03/15 end
