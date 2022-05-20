@@ -50,6 +50,8 @@ public:
      * @param loglevel   Controls amount of diagnostic output.
      */
     int solve(doublereal* x0, doublereal* x1, int loglevel);
+    
+    int dosolid;    // modified dosolid to match OneDim.cpp
 
     /// Number of domains.
     size_t nDomains() const {
@@ -194,7 +196,7 @@ public:
      */
     Domain1D* pointDomain(size_t i);
 
-    //! Call after one or more grids has changed size, for example after being refined.
+    //! Call after one or more grids has changed size, e.g. after being refined.
     virtual void resize();
 
     vector_int& transientMask() {
@@ -375,7 +377,7 @@ private:
     vector_int m_funcEvals;
     vector_fp m_funcElapsed;
 
-    //! Number of time steps taken in each call to solve() (for example, for each
+    //! Number of time steps taken in each call to solve() (e.g. for each
     //! successive grid refinement)
     vector_int m_timeSteps;
 };
