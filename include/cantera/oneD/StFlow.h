@@ -542,7 +542,7 @@ public:
 	    m_porec(0.1), m_pored(0.1), m_diama(0.1), m_diamb(0.1), 
 	    m_diamc(0.1), m_diamd(0.1)
         {
-        m_type = cPorousType;
+        m_type = cPorousType; // modified m_type 0519
         Tw.resize(points);
         dq.resize(points);
         hconv.resize(points);
